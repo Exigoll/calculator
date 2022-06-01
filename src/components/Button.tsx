@@ -1,17 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 
+export enum ButtonType {
+  Number,
+  Operation,
+  Total,
+}
+
 type Props = {
+  type?: ButtonType;
   label: string;
+  position?: [x: number, y: number];
+  width?: number;
 };
 
 const StyledButton = styled.button`
-  width: 100%;
-  height: 100%;
+  width: 80px;
+  height: 80px;
   font-weight: 500;
   font-size: 36px;
-  line-height: 88px;
-  color: #f2f2f2;
+  line-height: 70px;
   border-radius: 50%;
   transition: 0.1s ease-in-out;
   cursor: pointer;
@@ -23,20 +31,34 @@ const StyledButton = styled.button`
   &:active {
     transform: scale(1.1);
   }
-  &:nth-child(5) {
-    grid-column-start: 1;
-    grid-column-end: 3;
-  }
 
-  &:last-child {
-    background: #fff;
-    color: #2b589a;
+  &:nth-child(7) {
+    width: 100%;
   }
 `;
 
-// eslint-disable-next-line react/function-component-definition
-const Button: React.FC<Props> = ({ label }) => {
-  return <StyledButton>{label}</StyledButton>;
+const Button: React.FC<Props> = ({
+  type = ButtonType.Number,
+  label,
+  position,
+  width,
+}) => {
+  const styles: React.CSSProperties = {};
+  if (position) {
+    styles.gridColumnStart = position[0] + 1;
+    styles.gridRowStart = position[1] + 1;
+  }
+  if (width) {
+    styles.gridColumnEnd = `span ${width}`;
+  }
+  if (type === ButtonType.Total) {
+    styles.color = "#2b589a";
+    styles.backgroundColor = "#fff";
+  } else {
+    styles.color = "#fff";
+  }
+
+  return <StyledButton style={styles}>{label}</StyledButton>;
 };
 
 export default Button;
