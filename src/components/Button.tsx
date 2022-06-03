@@ -7,8 +7,8 @@ export enum ButtonType {
   Total,
 }
 
-type Props = {
-  type?: ButtonType;
+type Props = React.HTMLProps<HTMLButtonElement> & {
+  buttonType?: ButtonType;
   label: string;
   position?: [x: number, y: number];
   width?: number;
@@ -38,10 +38,12 @@ const StyledButton = styled.button`
 `;
 
 const Button: React.FC<Props> = ({
-  type = ButtonType.Number,
+  buttonType = ButtonType.Operation,
   label,
   position,
   width,
+  // eslint-disable-next-line react/prop-types
+  onClick,
 }) => {
   const styles: React.CSSProperties = {};
   if (position) {
@@ -51,14 +53,18 @@ const Button: React.FC<Props> = ({
   if (width) {
     styles.gridColumnEnd = `span ${width}`;
   }
-  if (type === ButtonType.Total) {
+  if (buttonType === ButtonType.Total) {
     styles.color = "#2b589a";
     styles.backgroundColor = "#fff";
   } else {
     styles.color = "#fff";
   }
 
-  return <StyledButton style={styles}>{label}</StyledButton>;
+  return (
+    <StyledButton onClick={onClick} style={styles}>
+      {label}
+    </StyledButton>
+  );
 };
 
 export default Button;

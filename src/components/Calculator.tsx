@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Button, { ButtonType } from "./Button";
+import Calc, { CalcInput, InputType, OperatorType } from "../modules/calc";
 
 const Container = styled.div`
   max-width: 554px;
@@ -59,39 +60,121 @@ const Display = styled.div`
 `;
 
 const Calculator: React.FC<{}> = () => {
+  const [inputs, setInputs] = React.useState<Array<CalcInput>>([]);
+  const state = Calc.getState(inputs);
+
+  const appendInput = (input: CalcInput): void => {
+    setInputs((prev) => [...prev, input]);
+  };
+
+  const handleAllClear = () => setInputs([]);
+
+  const handleBack = () => setInputs((prev) => prev.slice(0, -1));
+
+  const handNumerical = (value: number) => () => {
+    appendInput({ type: InputType.Numerical, value });
+  };
+
+  const handleOperator = (operator: OperatorType) => () => {
+    appendInput({ type: InputType.Operator, operator });
+  };
+
   return (
     <Container>
       <Menu>
         <SmallDisplay>300+300+299+1</SmallDisplay>
-        <Display>900</Display>
-        <Button type={ButtonType.Operation} label="C" position={[0, 2]} />
-        <Button type={ButtonType.Operation} label="√" position={[1, 2]} />
-        <Button type={ButtonType.Operation} label="%" position={[2, 2]} />
-        <Button type={ButtonType.Operation} label="÷" position={[3, 2]} />
+        <Display>{state.displayValue}</Display>
+        <Button label="C" position={[0, 2]} onClick={handleAllClear} />
+        <Button label="√" position={[1, 2]} />
+        <Button label="%" position={[2, 2]} />
+        <Button label="÷" position={[3, 2]} />
+        <Button label="⇐" position={[0, 3]} width={2} onClick={handleBack} />
+        <Button label="(" position={[2, 3]} />
+        <Button label=")" position={[3, 3]} />
+        <Button label="×" position={[3, 4]} />
         <Button
-          type={ButtonType.Operation}
-          label="Cancel"
-          position={[0, 3]}
-          width={2}
+          label="-"
+          position={[3, 5]}
+          onClick={handleOperator(OperatorType.Subtract)}
         />
-        <Button type={ButtonType.Operation} label="(" position={[2, 3]} />
-        <Button type={ButtonType.Operation} label=")" position={[3, 3]} />
-        <Button label="7" position={[0, 4]} />
-        <Button label="8" position={[1, 4]} />
-        <Button label="9" position={[2, 4]} />
-        <Button type={ButtonType.Operation} label="×" position={[3, 4]} />
-        <Button label="4" position={[0, 5]} />
-        <Button label="5" position={[1, 5]} />
-        <Button label="6" position={[2, 5]} />
-        <Button type={ButtonType.Operation} label="-" position={[3, 5]} />
-        <Button label="1" position={[0, 6]} />
-        <Button label="2" position={[1, 6]} />
-        <Button label="3" position={[2, 6]} />
-        <Button type={ButtonType.Operation} label="+" position={[3, 6]} />
-        <Button label="00" position={[0, 7]} />
-        <Button label="0" position={[1, 7]} />
-        <Button type={ButtonType.Operation} label="," position={[2, 7]} />
-        <Button type={ButtonType.Total} label="=" position={[3, 7]} />
+        <Button
+          label="+"
+          position={[3, 6]}
+          onClick={handleOperator(OperatorType.Add)}
+        />
+        <Button label="," position={[2, 7]} />
+        <Button
+          buttonType={ButtonType.Total}
+          label="="
+          position={[3, 7]}
+          onClick={handleOperator(OperatorType.Equals)}
+        />
+        <Button
+          buttonType={ButtonType.Number}
+          label="9"
+          position={[2, 4]}
+          onClick={handNumerical(9)}
+        />
+        <Button
+          buttonType={ButtonType.Number}
+          label="8"
+          position={[1, 4]}
+          onClick={handNumerical(8)}
+        />
+        <Button
+          buttonType={ButtonType.Number}
+          label="7"
+          position={[0, 4]}
+          onClick={handNumerical(7)}
+        />
+        <Button
+          buttonType={ButtonType.Number}
+          label="6"
+          position={[2, 5]}
+          onClick={handNumerical(6)}
+        />
+        <Button
+          buttonType={ButtonType.Number}
+          label="5"
+          position={[1, 5]}
+          onClick={handNumerical(5)}
+        />
+        <Button
+          buttonType={ButtonType.Number}
+          label="4"
+          position={[0, 5]}
+          onClick={handNumerical(4)}
+        />
+        <Button
+          buttonType={ButtonType.Number}
+          label="3"
+          position={[2, 6]}
+          onClick={handNumerical(3)}
+        />
+        <Button
+          buttonType={ButtonType.Number}
+          label="2"
+          position={[1, 6]}
+          onClick={handNumerical(2)}
+        />
+        <Button
+          buttonType={ButtonType.Number}
+          label="1"
+          position={[0, 6]}
+          onClick={handNumerical(1)}
+        />
+        <Button
+          buttonType={ButtonType.Number}
+          label="0"
+          position={[1, 7]}
+          onClick={handNumerical(0)}
+        />
+        <Button
+          buttonType={ButtonType.Number}
+          label="00"
+          position={[0, 7]}
+          onClick={handNumerical(0)}
+        />
       </Menu>
     </Container>
   );
