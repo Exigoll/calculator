@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.f3146f94.css",
-    "main.js": "/static/js/main.f8f59ad9.js",
-    "static/media/Geometria-Medium.ttf": "/static/media/Geometria-Medium.a08bd436e4c28b3d487e.ttf",
-    "static/media/Geometria-Bold.woff": "/static/media/Geometria-Bold.3a9ed34be5c5b3d8fc3c.woff",
-    "index.html": "/index.html",
-    "main.f3146f94.css.map": "/static/css/main.f3146f94.css.map",
-    "main.f8f59ad9.js.map": "/static/js/main.f8f59ad9.js.map"
+    "main.css": "/calculator-TS/static/css/main.5410430f.css",
+    "main.js": "/calculator-TS/static/js/main.497413f2.js",
+    "static/media/Geometria-Medium.ttf": "/calculator-TS/static/media/Geometria-Medium.a08bd436e4c28b3d487e.ttf",
+    "static/media/Geometria-Bold.woff": "/calculator-TS/static/media/Geometria-Bold.3a9ed34be5c5b3d8fc3c.woff",
+    "index.html": "/calculator-TS/index.html",
+    "main.5410430f.css.map": "/calculator-TS/static/css/main.5410430f.css.map",
+    "main.497413f2.js.map": "/calculator-TS/static/js/main.497413f2.js.map"
   },
   "entrypoints": [
-    "static/css/main.f3146f94.css",
-    "static/js/main.f8f59ad9.js"
+    "static/css/main.5410430f.css",
+    "static/js/main.497413f2.js"
   ]
 }
