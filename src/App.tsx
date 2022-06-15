@@ -1,8 +1,9 @@
 import React from "react";
+import { HashRouter } from "react-router-dom";
+
 import styled from "styled-components";
 
 import "./scss/app.scss";
-
 import Calculator from "./components/Calculator";
 
 const Container = styled.div`
@@ -16,9 +17,11 @@ const Container = styled.div`
 
 function App() {
   return (
-    <Container>
-      <Calculator />
-    </Container>
+    <HashRouter>
+      <Container>
+        <Calculator />
+      </Container>
+    </HashRouter>
   );
 }
 
