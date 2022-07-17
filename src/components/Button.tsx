@@ -12,6 +12,7 @@ type Props = React.HTMLProps<HTMLButtonElement> & {
   label: string;
   position?: [x: number, y: number];
   width?: number;
+  height?: number;
 };
 
 const StyledButton = styled.button`
@@ -42,6 +43,7 @@ const Button: React.FC<Props> = ({
   label,
   position,
   width,
+  height,
   // eslint-disable-next-line react/prop-types
   onClick,
 }) => {

@@ -24,18 +24,6 @@ const Menu = styled.div`
   justify-items: center;
 `;
 
-const SmallDisplay = styled.div`
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  grid-column-end: span 4;
-  width: 100%;
-  height: 50px;
-  outline: none;
-  font-size: 24px;
-  line-height: 32px;
-`;
-
 const Display = styled.div`
   position: relative;
   grid-column-end: span 4;
@@ -82,97 +70,83 @@ const Calculator: React.FC<{}> = () => {
   return (
     <Container>
       <Menu>
-        <SmallDisplay>300+300+299+1</SmallDisplay>
         <Display>{state.displayValue}</Display>
-        <Button label="C" position={[0, 2]} onClick={handleAllClear} />
-        <Button label="√" position={[1, 2]} />
-        <Button label="%" position={[2, 2]} />
-        <Button label="÷" position={[3, 2]} />
-        <Button label="⇐" position={[0, 3]} width={2} onClick={handleBack} />
-        <Button label="(" position={[2, 3]} />
-        <Button label=")" position={[3, 3]} />
-        <Button label="×" position={[3, 4]} />
+        <Button label="C" position={[3, 1]} onClick={handleAllClear} />
+        <Button label="⇐" position={[3, 2]} onClick={handleBack} />
         <Button
           label="-"
-          position={[3, 5]}
+          position={[3, 3]}
           onClick={handleOperator(OperatorType.Subtract)}
         />
         <Button
           label="+"
-          position={[3, 6]}
+          position={[3, 4]}
           onClick={handleOperator(OperatorType.Add)}
         />
-        <Button label="," position={[2, 7]} />
         <Button
           buttonType={ButtonType.Total}
           label="="
-          position={[3, 7]}
+          position={[3, 5]}
           onClick={handleOperator(OperatorType.Equals)}
         />
         <Button
           buttonType={ButtonType.Number}
           label="9"
-          position={[2, 4]}
+          position={[2, 2]}
           onClick={handNumerical(9)}
         />
         <Button
           buttonType={ButtonType.Number}
           label="8"
-          position={[1, 4]}
+          position={[1, 2]}
           onClick={handNumerical(8)}
         />
         <Button
           buttonType={ButtonType.Number}
           label="7"
-          position={[0, 4]}
+          position={[0, 2]}
           onClick={handNumerical(7)}
         />
         <Button
           buttonType={ButtonType.Number}
           label="6"
-          position={[2, 5]}
+          position={[2, 3]}
           onClick={handNumerical(6)}
         />
         <Button
           buttonType={ButtonType.Number}
           label="5"
-          position={[1, 5]}
+          position={[1, 3]}
           onClick={handNumerical(5)}
         />
         <Button
           buttonType={ButtonType.Number}
           label="4"
-          position={[0, 5]}
+          position={[0, 3]}
           onClick={handNumerical(4)}
         />
         <Button
           buttonType={ButtonType.Number}
           label="3"
-          position={[2, 6]}
+          position={[2, 4]}
           onClick={handNumerical(3)}
         />
         <Button
           buttonType={ButtonType.Number}
           label="2"
-          position={[1, 6]}
+          position={[1, 4]}
           onClick={handNumerical(2)}
         />
         <Button
           buttonType={ButtonType.Number}
           label="1"
-          position={[0, 6]}
+          position={[0, 4]}
           onClick={handNumerical(1)}
         />
         <Button
           buttonType={ButtonType.Number}
           label="0"
-          position={[1, 7]}
-          onClick={handNumerical(0)}
-        />
-        <Button
-          buttonType={ButtonType.Number}
-          label="00"
-          position={[0, 7]}
+          position={[1, 5]}
           onClick={handNumerical(0)}
         />
       </Menu>
