@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/calculator-TS/static/css/main.5410430f.css",
-    "main.js": "/calculator-TS/static/js/main.7f68353f.js",
+    "main.js": "/calculator-TS/static/js/main.f890190f.js",
     "static/media/Geometria-Medium.ttf": "/calculator-TS/static/media/Geometria-Medium.a08bd436e4c28b3d487e.ttf",
     "static/media/Geometria-Bold.woff": "/calculator-TS/static/media/Geometria-Bold.3a9ed34be5c5b3d8fc3c.woff",
     "index.html": "/calculator-TS/index.html",
     "main.5410430f.css.map": "/calculator-TS/static/css/main.5410430f.css.map",
-    "main.7f68353f.js.map": "/calculator-TS/static/js/main.7f68353f.js.map"
+    "main.f890190f.js.map": "/calculator-TS/static/js/main.f890190f.js.map"
   },
   "entrypoints": [
     "static/css/main.5410430f.css",
-    "static/js/main.7f68353f.js"
+    "static/js/main.f890190f.js"
   ]
 }
